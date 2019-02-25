@@ -1,0 +1,38 @@
+.Employee {
+  display: grid;
+  grid-template-columns: auto 3em;
+  grid-template-rows: 1.5em auto;
+  grid-template-areas:
+    "title icon"
+    "content content";
+  padding: 0.5em;
+  user-select: none;
+}
+
+.Employee__title {
+  align-self: center;
+  grid-area: title;
+  justify-self: start;
+}
+
+.Employee__expand-collapse {
+  align-self: center;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 2em;
+  grid-area: icon;
+  justify-self: end;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.Employee__content {
+  align-self: stretch;
+  font-size: 0.8em;
+  grid-area: content;
+  justify-self: start;
+}
+
+.Employee__content--collapsed {
+  display: none;
+}
