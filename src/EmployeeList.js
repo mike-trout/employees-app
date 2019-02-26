@@ -18,7 +18,7 @@ class EmployeeList extends Component {
 
     getEmployees = () => {
         console.log("Getting employees...");
-        http.get('http://172.17.114.62/', (resp) => {
+        http.get('/services/employees', (resp) => {
             let data = '';
 
             resp.on('data', (chunk) => {

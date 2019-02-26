@@ -21,7 +21,7 @@ class Employee extends Component {
 
     getEmployeeDetails = () => {
         console.log("Getting employee details for " + this.state.personnelId);
-        http.get('http://172.17.114.62/' + this.state.personnelId, (resp) => {
+        http.get('/services/employees/' + this.state.personnelId, (resp) => {
             let data = '';
 
             resp.on('data', (chunk) => {
