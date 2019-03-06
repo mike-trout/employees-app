@@ -1,9 +1,9 @@
 .EmployeeList {
   background-color: #282c34;
-  color: whitesmoke;
   border: 2px solid whitesmoke;
   border-radius: 0.5em;
   box-shadow: 0 0 10em 0.5em whitesmoke; 
+  color: whitesmoke;
 }
 
 .EmployeeList .Employee {
