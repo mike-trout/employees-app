@@ -18,7 +18,7 @@ class EmployeeList extends Component {
 
     getEmployees = () => {
         console.log("Getting employees...");
-        http.get('/services/employees', (resp) => {
+        http.get('/api/employees/', (resp) => {
             let data = '';
 
             resp.on('data', (chunk) => {

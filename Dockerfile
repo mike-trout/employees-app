@@ -1,8 +1,8 @@
 # Build React app
 FROM node:10 as react-build
 COPY . .
-RUN yarn
-RUN yarn build
+RUN npm update
+RUN npm run build
 
 # Deploy React app
 FROM nginx:alpine
