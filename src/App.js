@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <EmployeeList />
+        <EmployeeList start="1" number="10" />
       </div>
     );
   }

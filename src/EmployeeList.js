@@ -8,7 +8,9 @@ class EmployeeList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            employees: []
+            employees: [],
+            start: parseInt(props.start) || 1,
+            number: parseInt(props.number) || 10
         };
     }
 
@@ -18,7 +20,7 @@ class EmployeeList extends Component {
 
     getEmployees = () => {
         console.log("Getting employees...");
-        http.get('/api/employees/', (resp) => {
+        http.get('/api/employees/?s=' + this.state.start + '&n=' + this.state.number, (resp) => {
             let data = '';
 
             resp.on('data', (chunk) => {
@@ -36,6 +38,18 @@ class EmployeeList extends Component {
         });
     }
 
+    onNextButtonClick = () => {
+        this.setState({ "start": this.state.start + this.state.number });
+        this.getEmployees();
+    }
+
+    onPrevButtonClick = () => {
+        if (this.state.start - this.state.number > 0) {
+            this.setState({ "start": this.state.start - this.state.number });
+            this.getEmployees();
+        }
+    }
+
     render() {
         const employees = this.state.employees.map((emp, i) => (
             <Employee key={i}
@@ -45,7 +59,21 @@ class EmployeeList extends Component {
                 lastName={emp.lastName} />
         ));
         return (
-            <div className="EmployeeList">{employees}</div>
+            <div className="EmployeeList">
+                <input className="EmployeeList__previous-button"
+                    type="button"
+                    value="<"
+                    onClick={this.onPrevButtonClick}>
+                </input>
+                <div className="EmployeeList">
+                    {employees}
+                </div>
+                <input className="EmployeeList__next-button"
+                    type="button"
+                    value=">"
+                    onClick={this.onNextButtonClick}>
+                </input>
+            </div>
         );
     }
 }
