@@ -1,25 +1,26 @@
 .Employee {
   display: grid;
-  grid-template-columns: auto 3em;
-  grid-template-rows: 1.5em auto;
-  grid-template-areas:
-    "title icon"
-    "content content";
-  padding: 0.5em;
+  box-sizing: border-box;
+  grid-template-columns: auto 3rem;
+  grid-template-rows: 1.5rem auto;
+  grid-template-areas: "title icon" "content content";
+  padding: 0.5rem;
   user-select: none;
+  width: 100%;
 }
 
 .Employee__title {
   align-self: center;
   grid-area: title;
   justify-self: start;
+  white-space: nowrap;
 }
 
 .Employee__expand-collapse {
   align-self: center;
   cursor: pointer;
   font-family: monospace;
-  font-size: 2em;
+  font-size: 2rem;
   grid-area: icon;
   justify-self: end;
   text-align: center;
@@ -28,7 +29,7 @@
 
 .Employee__content {
   align-self: stretch;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   grid-area: content;
   justify-self: start;
 }

@@ -19,6 +19,12 @@ class Employee extends Component {
         };
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.collapsed === true && this.state.collapsed === false) {
+            this.getEmployeeDetails();
+        }
+    }
+
     getEmployeeDetails = () => {
         console.log("Getting employee details for " + this.state.personnelId);
         http.get('/api/employees/' + this.state.personnelId, (resp) => {
@@ -43,12 +49,10 @@ class Employee extends Component {
         });
     }
 
-    onClick = (event) => {
-        if (this.state.collapsed) {
-            this.getEmployeeDetails();
-        }
-        this.setState({ collapsed: !this.state.collapsed });
-        event.preventDefault();
+    onExpandCollapseClick = () => {
+        this.setState(prevState => ({
+            collapsed: !prevState.collapsed
+        }));
     }
 
     render() {
@@ -61,7 +65,7 @@ class Employee extends Component {
                         + (this.state.lastName || "")}
                 </span>
                 <span className="Employee__expand-collapse"
-                    onClick={(event) => this.onClick(event)}>
+                    onClick={this.onExpandCollapseClick}>
                     {this.state.collapsed ? "+" : "\u2013"}
                 </span>
                 <span className={"Employee__content" + (this.state.collapsed ? "--collapsed" : "")}>

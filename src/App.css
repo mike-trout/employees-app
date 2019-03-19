@@ -1,11 +1,17 @@
+:root {
+  --background-color: #282c34;
+  --foreground-color: whitesmoke;
+  font-size: calc(10px + 2vmin);
+}
+
 .App {
   align-items: center;
-  background-color: #282c34;
-  color: white;
+  background-color: var(--background-color);
+  box-sizing: border-box;
+  color: var(--foreground-color);
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
   justify-content: center;
   min-height: 100vh;
-  padding: 2em;
+  padding: 2rem;
 }

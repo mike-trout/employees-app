@@ -18,6 +18,12 @@ class EmployeeList extends Component {
         this.getEmployees();
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.number !== this.state.number || prevState.start !== this.state.start) {
+            this.getEmployees();
+        }
+    }
+
     getEmployees = () => {
         console.log("Getting employees...");
         http.get('/api/employees/?s=' + this.state.start + '&n=' + this.state.number, (resp) => {
@@ -39,20 +45,22 @@ class EmployeeList extends Component {
     }
 
     onNextButtonClick = () => {
-        this.setState({ "start": this.state.start + this.state.number });
-        this.getEmployees();
+        this.setState(prevState => ({
+            start: prevState.start + prevState.number
+        }));
     }
 
     onPrevButtonClick = () => {
         if (this.state.start - this.state.number > 0) {
-            this.setState({ "start": this.state.start - this.state.number });
-            this.getEmployees();
+            this.setState(prevState => ({
+                start: prevState.start - prevState.number
+            }));
         }
     }
 
     render() {
         const employees = this.state.employees.map((emp, i) => (
-            <Employee key={i}
+            <Employee key={emp.personnelId}
                 personnelId={emp.personnelId}
                 firstName={emp.firstName}
                 middlename={emp.middleName}
@@ -65,7 +73,7 @@ class EmployeeList extends Component {
                     value="<"
                     onClick={this.onPrevButtonClick}>
                 </input>
-                <div className="EmployeeList">
+                <div className="EmployeeList__list">
                     {employees}
                 </div>
                 <input className="EmployeeList__next-button"
