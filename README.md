@@ -25,6 +25,7 @@ The app is automatically built to [dockerhub](https://hub.docker.com/r/miketrout
 To deploy to a Kubernetes cluster, run:
 
 `kubectl apply -f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-deployment.yaml \`
+
 `-f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-service.yaml`
 
 The service is exposed as a NodePort.
