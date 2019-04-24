@@ -12,10 +12,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-To build the app to a container image, run:
+To build the app locally to a container image, run:
 
 #### `docker build --tag employees-app .`
 
 To deploy the app, run:
 
 #### `docker run -d -p 80:80 --link employees-service --name employees-app employees-app`
+
+The app is automatically built to [dockerhub](https://hub.docker.com/r/miketrout/employees-app) on a commit to master as `miketrout/employees-app:latest`
