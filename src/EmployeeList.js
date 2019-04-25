@@ -71,7 +71,8 @@ class EmployeeList extends Component {
                 <input className="EmployeeList__previous-button"
                     type="button"
                     value="<"
-                    onClick={this.onPrevButtonClick}>
+                    onClick={this.onPrevButtonClick}
+                    disabled={this.state.start === 1}>
                 </input>
                 <div className="EmployeeList__list">
                     {employees}
