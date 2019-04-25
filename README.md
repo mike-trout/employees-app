@@ -22,9 +22,9 @@ To run the container locally:
 
 `docker run -d -p 80:80 --link employees-service --name employees-app employees-app`
 
-The employees-service and its dependencies will need to have been started.
+The `employees-service` container and its dependencies will need to have been started.
 
-The app is automatically built to [Docker Hub](https://hub.docker.com/r/miketrout/employees-app) on a commit to master as `miketrout/employees-app:latest`
+The app is automatically built to [Docker Hub](https://hub.docker.com/r/miketrout/employees-app) on a commit to `master` as `miketrout/employees-app:latest`
 
 To deploy to a Kubernetes cluster, run:
 ```sh
