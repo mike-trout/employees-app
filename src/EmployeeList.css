@@ -41,7 +41,7 @@
   box-shadow: 0 0 1rem 0.1rem var(--foreground-color);
 }
 
-.EmployeesList__next-button:disabled, .EmployeesList__previous-button:disabled {
+.EmployeeList__next-button:disabled, .EmployeeList__previous-button:disabled {
   border-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.2);
   cursor: default;
