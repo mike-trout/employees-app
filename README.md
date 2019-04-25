@@ -1,3 +1,5 @@
+# employees-app
+
 This project is a basic React app to interact with the [employees-service](https://github.com/mike-trout/employees-service).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
