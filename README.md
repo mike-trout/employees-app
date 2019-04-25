@@ -24,7 +24,7 @@ To run the container locally:
 
 The employees-service and its dependencies will need to have been started.
 
-The app is automatically built to [dockerhub](https://hub.docker.com/r/miketrout/employees-app) on a commit to master as `miketrout/employees-app:latest`
+The app is automatically built to [Docker Hub](https://hub.docker.com/r/miketrout/employees-app) on a commit to master as `miketrout/employees-app:latest`
 
 To deploy to a Kubernetes cluster, run:
 
