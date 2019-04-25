@@ -33,4 +33,4 @@ kubectl apply \
 -f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-service.yaml
 ```
 
-The service is exposed as a NodePort.
+The service is exposed as a `NodePort`.
