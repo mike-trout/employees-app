@@ -28,7 +28,8 @@ The app is automatically built to [Docker Hub](https://hub.docker.com/r/miketrou
 
 To deploy to a Kubernetes cluster, run:
 ```sh
-kubectl apply -f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-deployment.yaml \
+kubectl apply \
+-f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-deployment.yaml \
 -f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-service.yaml
 ```
 
