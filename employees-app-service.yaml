@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: employees-app
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: employees
     tier: frontend
