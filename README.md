@@ -32,6 +32,6 @@ kubectl apply \
 -f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-deployment.yaml \
 -f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-service.yaml
 ```
-You must first have started the backend services from [employees-service](https://github.com/mike-trout/employees-service).
+You must first have created the backend resources from [employees-service](https://github.com/mike-trout/employees-service).
 
 The service is exposed as a `LoadBalancer`.
