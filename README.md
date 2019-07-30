@@ -1,6 +1,6 @@
 # employees-app
 
-This project is a basic React app to interact with the [employees-service](https://github.com/mike-trout/employees-service).
+This project is a basic React app to interact with the [employees-service](https://github.com/mike-trout/employees-service). 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -32,5 +32,6 @@ kubectl apply \
 -f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-deployment.yaml \
 -f https://raw.githubusercontent.com/mike-trout/employees-app/master/employees-app-service.yaml
 ```
+You must first have started the backend services from [employees-service](https://github.com/mike-trout/employees-service).
 
-The service is exposed as a `NodePort`.
+The service is exposed as a `LoadBalancer`.
