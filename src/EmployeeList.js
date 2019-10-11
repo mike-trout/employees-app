@@ -4,6 +4,8 @@ import './EmployeeList.css';
 
 const http = require('http');
 
+const EMPLOYEES_API_URL = process.env.EMPLOYEES_API_URL || "https://api.miketrout.dev/employees/";
+
 class EmployeeList extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +28,7 @@ class EmployeeList extends Component {
 
     getEmployees = () => {
         console.log("Getting employees...");
-        http.get('/api/employees/?s=' + this.state.start + '&n=' + this.state.number, (resp) => {
+        http.get(EMPLOYEES_API_URL + '?s=' + this.state.start + '&n=' + this.state.number, (resp) => {
             let data = '';
 
             resp.on('data', (chunk) => {
