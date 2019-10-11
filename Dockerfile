@@ -1,5 +1,5 @@
 # Build React app
-FROM node:10 as react-build
+FROM node:alpine as react-build
 COPY . .
 RUN npm update
 RUN npm run build
