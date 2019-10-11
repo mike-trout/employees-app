@@ -1,6 +1,8 @@
 # employees-app
 
-This project is a basic React app to interact with the [employees-service](https://github.com/mike-trout/employees-service). 
+This project is a basic React app to interact with the [employees-service](https://github.com/mike-trout/employees-service).
+
+By default, it will use the hosted API at [https://api.miketrout.dev/employees/](https://api.miketrout.dev/employees/). Set the `EMPLOYEES_API_URL` environment variable appropriately to use a different version of the API, e.g. local development.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -20,9 +22,7 @@ To build the app locally to a container image, run:
 
 To run the container locally:
 
-`docker run -d -p 80:80 --link employees-service --name employees-app employees-app`
-
-The `employees-service` container and its dependencies will need to have been started.
+`docker run -d -p 80:80 --name employees-app employees-app`
 
 The app is automatically built to [Docker Hub](https://hub.docker.com/r/miketrout/employees-app) on a commit to `master` as `miketrout/employees-app:latest`
 
@@ -34,4 +34,4 @@ kubectl apply \
 ```
 You must first have created the backend resources from [employees-service](https://github.com/mike-trout/employees-service).
 
-The service is exposed as a `LoadBalancer`.
+The service is exposed as a `NodePort` service..
