@@ -24,6 +24,8 @@ To run the container locally:
 
 `docker run -d -p 80:80 --name employees-app employees-app`
 
+The app will then be served at [http://localhost/employees-app](http://localhost/employees-app).
+
 The app is automatically built to [Docker Hub](https://hub.docker.com/r/miketrout/employees-app) on a commit to `master` as `miketrout/employees-app:latest`
 
 To deploy to a Kubernetes cluster, run:
@@ -34,4 +36,4 @@ kubectl apply \
 ```
 You must first have created the backend resources from [employees-service](https://github.com/mike-trout/employees-service).
 
-The service is exposed as a `NodePort` service..
+The service is exposed as a `NodePort` service.
