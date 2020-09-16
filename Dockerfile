@@ -3,7 +3,8 @@ FROM node:alpine as react-build
 WORKDIR /app
 COPY package-lock.json ./
 COPY package.json ./
-RUN npm install --silent
+ENV NODE_ENV=production
+RUN npm ci
 COPY ./public ./public
 COPY ./src ./src
 RUN npm run build
