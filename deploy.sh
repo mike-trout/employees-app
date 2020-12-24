@@ -14,5 +14,5 @@ gcloud container clusters get-credentials gke-cluster --zone us-central1-a --pro
 kubectl apply -f employees-app-deployment.yaml -f employees-app-service.yaml
 
 # https://github.com/kubernetes/kubernetes/issues/27081#issuecomment-238078103
-kubectl patch deployment www-miketrout-dev-deployment \
+kubectl patch deployment employees-app-deployment \
   -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
