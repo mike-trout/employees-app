@@ -1,5 +1,7 @@
 # employees-app
 
+[![Build Status](https://travis-ci.com/mike-trout/employees-app.svg?branch=master)](https://travis-ci.com/mike-trout/employees-app)
+
 This project is a basic React app to interact with the [employees-service](https://github.com/mike-trout/employees-service).
 
 By default, it will use the hosted API at [https://api.miketrout.dev/employees/](https://api.miketrout.dev/employees/). Set the `EMPLOYEES_API_URL` environment variable appropriately to use a different version of the API, e.g. local development.
