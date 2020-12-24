@@ -1,0 +1,37 @@
+---
+# arch: arm64-graviton2 # in AWS over Graviton2 CPU
+# virt: lxd             # required, routes to an LXD container
+os: linux             # required for arch different than amd64
+dist: focal           # or bionic | xenial with xenial as default
+group: edge
+
+language: shell
+
+services:
+- docker
+
+branches:
+  only:
+  - master
+
+env:
+  global:
+  - CLOUDSDK_CORE_DISABLE_PROMPTS=1 # Do not prompt for user input when using any SDK methods.
+  - DOCKER_HUB_USERNAME=miketrout
+  - secure: "ukK9vp8kXAemmguV2yewjhuda8CCAW/182L/nHr2pQvhMNRpUlFEB/6SOWlZVOj8Rdz0LzMytLWFTU8hpeHol2jWv0N6SMBR2kO5hleoXKwkO1W3tFMEUaEd6AVQAEuR/LYsxflRFmQPy/x96D7mU1iElmkWt0t+udA9YRPQx7kvbZ0ebeg8cdpnVt9ixqrSyQ2xy2TG9zWaYSz3Kv0Odk9I6KJW+RFLHomzjSd4h4A6Qeh2yuGmZ6tEkfhrQssD9fH5totqenaA/Aq+Gp9CxvxNKohbsKGJXjU4l7SNv+2qS/KZkCPfy8sSBUAmsg5eO1xAwfrxV/QnH/Nhjl9Vt2IRVnmoo/7GNQm25yEUWLX1MTiEa0KQ9xT7XdsSsSbf5ay5xtIHYYY+anYTC40aCZgH4DS+U57Tc3edSeZ3YCVbUnxwEYaM4pj2tFy7h+cgAe4/VOIWBv9M6qxoqfxyIfiRO2b93uU+F34h6LdZhWyfY92mXwGSTKCSdDnXah2z8K62/ZSumnKPoc3jsiCt00AhU6LplMfG6pdW8c9EGWDEJ7XBpbUYbk2XE5TvP3lxFE13e7/JzfsW3s0YKo1ExzIoIoSQLdFT/jykVJ8eNvGIDAHpH2L/6VDpY5YCd5QUDj8DjPJBe8tYktgb4qLgYP4SNhd1VA15/rbTtYQIkkw="
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_d698a6d65e83_key -iv $encrypted_d698a6d65e83_iv -in gcloud-service-account-secret.json.enc -out gcloud-service-account-secret.json -d
+
+script:
+- docker --version
+- docker build --tag miketrout/employees-app .
+- echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+- docker push miketrout/employees-app
+
+deploy:
+  provider: script
+  script: bash deploy.sh
+  edge: true
+  on:
+    branch: master
